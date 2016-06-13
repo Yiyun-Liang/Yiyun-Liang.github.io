@@ -1,5 +1,5 @@
 
-var viewSwitchApp = angular.module('viewSwitchApp', [])
+var viewSwitchApp = angular.module('viewSwitchApp', ['ngRoute'])
 
 viewSwitchApp.controller('mainController', function($scope) {
         $scope.message = 'Everyone come and see how good I look!';
@@ -15,7 +15,7 @@ viewSwitchApp.controller('mainController', function($scope) {
 
 viewSwitchApp.config(function($routeProvider){
     $routeProvider
-        .when('/home', {
+        .when('/', {
             templateUrl: 'index.html',
             controller: 'mainController'
         })
@@ -24,15 +24,13 @@ viewSwitchApp.config(function($routeProvider){
             controller: 'mainController'
         })
         .when('/blog', {
-            templateUrl: 'blog.html',
-            controller: 'mainController'
+            templateUrl: 'blog.html'
         })
         .when('/portfolio', {
-            templateUrl: 'portfolio.html',
-            controller: 'mainController'
+            templateUrl: 'portfolio.html'
         })
         .when('/contact', {
-            templateUrl: 'contact.html',
-            controller: 'mainController'
+            templateUrl: 'contact.html'
         })
-})
+        .otherwise({redirectTo: '/'});
+});
