@@ -46,12 +46,13 @@
 
                         <div class="pad flex-item tm-team-description-container">
                             <h2 class="tm-section-title">About me</h2>
-                            <p class="tm-section-description">My name is Isa. Or maybe you know me as Yiyun Liang. I have posted my projects on the website.</p>
+                            <p class="tm-section-description">My name is Isa. Or maybe you know me as Yiyun Liang. I am a student at the University of Waterloo, Software Engineering class of 2020. I am really passionate about technologies and I have posted some of my projects on the website. Feel free to email me with any questions.</p>
                             <p class="tm-section-description">
                               Contact information:<br>
                               <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:y76liang@uwaterloo.ca?Subject=Hello" target="_top">Send Email</a><br>
                               <i class="fa fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/yiyunliang/">in/yiyunliang/</a><br>
-                              <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/Yiyun-Liang">github.com/Yiyun-Liang</a>
+                              <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/Yiyun-Liang">github.com/Yiyun-Liang</a><br>
+                              <i class="fa fa-file-text-o" aria-hidden="true"></i> <a href="https://github.com/Yiyun-Liang">My Resume</a>
                             </p>
                         </div>
                         <div class="flex-item">
@@ -147,7 +148,7 @@
 
                     <div id="contact" class="pad">
                         <h2 class="tm-section-title">Contact me</h2>
-                        <form action="#contact" method="get" class="contact-form">
+                        <form action="#contact send_email.php" method="pose" class="contact-form" name="email-form">
 
                             <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 form-group-2-col-left">
                                 <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
@@ -162,7 +163,7 @@
                                 <textarea id="contact_message" name="contact_message" class="form-control" rows="9" placeholder="Message" required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                            <button type="submit" value="Send Message" class="btn btn-primary submit-btn">Submit</button>
 
                         </form>
                     </div>
@@ -178,6 +179,16 @@
         </div>
 
         <!-- load JS files -->
+        <script src="js/gen_validatorv31.js" type="text/javascript"></script>
+        <script>
+        // Code for validating the form
+        // Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
+        // for details
+        var frmvalidator  = new Validator("email-form");
+        frmvalidator.addValidation("contact_name","req","Please provide your name");
+        frmvalidator.addValidation("contact_email","req","Please provide your email");
+        frmvalidator.addValidation("contact_email","email","Please enter a valid email address");
+        </script>
 
         <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
         <script src="js/bootstrap.min.js"></script>                 <!-- Bootstrap (http://v4-alpha.getbootstrap.com/getting-started/download/) -->
